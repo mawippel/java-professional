@@ -1,19 +1,9 @@
-package designpatterns.immutableObjects;
+package designpatterns.builder;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/*
- * 5 RULES OF IMMUTABLE CLASSES
- * 
- * 1. Use a constructor to set all properties of the object;
- * 2. Mark all of the instance variables private and final;
- * 3. Don't define any setter methods;
- * 4. Don't allow referenced mutable objects to be modified or accessed directly;
- * 5. Prevent methods from being overridden;
- * 
- */
 public final class Animal {
 
 	private final int size;
@@ -43,10 +33,5 @@ public final class Animal {
 	public String getFavoriteFood(int index) {
 		return favoriteFoods.get(index);
 	}
-	
-	// THIS CAN'T BE DONE, AS IT TURNS THE OBJECT MUTABLE
-//	public List<String> getFavoriteFoods() {
-//		return favoriteFoods;
-//	}
 
 }
