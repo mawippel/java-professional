@@ -10,6 +10,8 @@ public class Main {
 				.setName("auau")
 				.setFavoriteFoods(Arrays.asList("Apple", "Hamburguer", "Eggplant"))
 				.build();
+		
+		String[] array = {"aaaa"};
 	}
 
 }
