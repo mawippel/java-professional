@@ -41,12 +41,23 @@ public class Duck implements Comparable<Duck> {
 	}
 	
 	public static void main(String[] args) {
+		// Both of the comparator are the same (method reference)
 		Comparator<Duck> c = (o1, o2) -> o1.getId() - o2.getId();
+		Comparator<Duck> r = DuckHelper::getById;
+		
 		List<Duck> d = new ArrayList<>();
 		d.add(new Duck());
 		d.add(new Duck());
 		d.add(new Duck());
 		Collections.sort(d, c);
+	}
+	
+	private static class DuckHelper {
+		
+		private static int getById(Duck o1, Duck o2) {
+			return o1.getId() - o2.getId();
+		}
+		
 	}
 
 }
