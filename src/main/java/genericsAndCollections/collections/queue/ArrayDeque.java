@@ -7,6 +7,12 @@ public class ArrayDeque {
 	 * Best type of queue;
 	 * 
 	 * Can be used as a Queue or a Stack.
+	 * 
+	 * Stack -> use push()
+	 * Queue -> use offer()
+	 * 
+	 * pop -> pops out the element from the stack/queue
+	 * peek -> gets the elements but not remove it from the stack/queue
 	 */
 	
 }

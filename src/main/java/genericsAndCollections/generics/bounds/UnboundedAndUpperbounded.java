@@ -17,12 +17,14 @@ public class UnboundedAndUpperbounded {
 	 * it's treated as an Object
 	 */
 	public void printList(List<?> list) { // UNBOUNDED WILDCARD
+//		list.add(new Object()); // CANT BE DONE, THIS IS IMMUTABLE
 		for (Object object : list) {
 			System.out.println(object);
 		}
 	}
 
 	public void printNumberList(List<? extends Number> anyNumber) { // UPPERBOUND WILDCARD
+//		anyNumber.add(1); // CANT BE DONE, THIS IS IMMUTABLE
 		for (Number number : anyNumber) {
 			System.out.println(number);
 		}

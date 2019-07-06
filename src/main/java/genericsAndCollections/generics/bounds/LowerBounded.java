@@ -11,8 +11,8 @@ import java.util.List;
 public class LowerBounded {
 
 	private void addSound(List<? super String> list) {
-		list.add("This is mutable!");
-		// list.add(new Object()); This does not compile, cause we could have an Object object in there, and it wouldnt fit the List
+		list.add("This is immutable!");
+		list.add(""); // THIS IS MUTABLE, BUT YOU CAN ADD ONLY STRINGS
 	}
 
 	public void main() {
