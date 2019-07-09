@@ -46,4 +46,34 @@ public class Streams {
 		xd.sorted(Comparator.reverseOrder()).forEach(System.out::println);
 	}
 	
+	/**
+	 * Good for debugging stuff.
+	 * Perform a stream operation without changing it.
+	 */
+	private void peek() {
+		List<Integer> numbers = Arrays.asList(1, 2, 3);
+		List<Character> letters = Arrays.asList('a', 'b', 'c');
+		
+		// Bad way
+		Stream<List<?>> stream = Stream.of(numbers, letters);
+		stream.map(l -> l.size()).forEach(System.out::print);
+		// Good way
+		Stream<List<?>> stream2 = Stream.of(numbers, letters);
+		stream2.peek(System.out::print) // Print each list
+				.map(List::size) // Transform into a list of sizes
+				.forEach(System.out::print); // Print each size
+		
+	}
+	
+	public static void main(String[] args) {
+		List<Integer> numbers = Arrays.asList(1, 2, 3);
+		List<Character> letters = Arrays.asList('a', 'b', 'c');
+		
+		// Good way
+		Stream<List<?>> stream2 = Stream.of(numbers, letters);
+		stream2.peek(System.out::println) // Print each list
+				.map(List::size) // Transform into a list of sizes
+				.forEach(System.out::println); // Print each size
+	}
+	
 }
