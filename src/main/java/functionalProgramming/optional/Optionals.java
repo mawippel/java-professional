@@ -18,4 +18,10 @@ public class Optionals {
 		return Optional.of("aa");
 	}
 	
+	private void map(Optional<Integer> opt) {
+		opt.map(i -> i.toString())
+			.filter(a -> a.length() == 3)
+			.ifPresent(System.out::println);
+	}
+	
 }

@@ -62,18 +62,6 @@ public class Streams {
 		stream2.peek(System.out::print) // Print each list
 				.map(List::size) // Transform into a list of sizes
 				.forEach(System.out::print); // Print each size
-		
-	}
-	
-	public static void main(String[] args) {
-		List<Integer> numbers = Arrays.asList(1, 2, 3);
-		List<Character> letters = Arrays.asList('a', 'b', 'c');
-		
-		// Good way
-		Stream<List<?>> stream2 = Stream.of(numbers, letters);
-		stream2.peek(System.out::println) // Print each list
-				.map(List::size) // Transform into a list of sizes
-				.forEach(System.out::println); // Print each size
 	}
 	
 }
