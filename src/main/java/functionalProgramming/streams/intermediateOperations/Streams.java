@@ -64,4 +64,8 @@ public class Streams {
 				.forEach(System.out::print); // Print each size
 	}
 	
+	public static void main(String[] args) {
+		Stream.generate(() -> "1").filter(x -> x.length() > 1).forEach(System.out::println);
+	}
+	
 }
