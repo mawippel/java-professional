@@ -5,6 +5,27 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+/**
+ * ResourceBundles have hierarchy, and, the order is:
+ * 
+ *  file_en_us
+ *  file_en
+ *  file
+ *  
+ *  To find a file, it follows the following order (fr_FR and us_EN as default):
+ *  
+ *  Zoo_fr_FR.java
+ *  Zoo_fr_FR.properties
+ *  Zoo_fr.java
+ *  Zoo_fr.properties
+ *  Zoo_en_US.java
+ *  Zoo_en_US.properties
+ *  Zoo_en.java
+ *  Zoo_en.properties
+ *  Zoo.java
+ *  Zoo.properties
+ *  throws MissingResourceException
+ */
 public class ResourceBundles {
 
 	public static void main(String[] args) {
@@ -32,6 +53,7 @@ public class ResourceBundles {
 			.forEach(k -> p.put(k, bundle.getString(k)));
 		
 		System.out.println(p.getProperty("doesntExists")); // null
+		System.out.println(p.get("doesntExists")); // null
 		System.out.println(p.getProperty("doesntExists", "defaultValue")); // defaultValue
 		System.out.println(p.getProperty("open", "defaultValue")); // The Zoo is open
 	}
