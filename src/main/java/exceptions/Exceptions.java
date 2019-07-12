@@ -1,9 +1,7 @@
 package exceptions;
 
-import java.sql.SQLException;
 import java.time.DateTimeException;
 
-import javax.management.RuntimeErrorException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
