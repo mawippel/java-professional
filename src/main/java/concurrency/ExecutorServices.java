@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 public class ExecutorServices {
 
@@ -11,7 +12,7 @@ public class ExecutorServices {
 	 * In this example, we have a thread for main() and another one for
 	 * ExecutorService
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();
 		newSingleThreadExecutor.execute(() -> { // Execute doesnt return anything, if you want to return something, use
 												// submit()
@@ -34,6 +35,10 @@ public class ExecutorServices {
 		newSingleThreadExecutor.shutdown(); // Will not receive new tasks in this executor, but, finishes the Execution
 											// of the previous defined tasks that are running
 		newSingleThreadExecutor.shutdownNow(); // Will ATTEMPT to stop all the running tasks
+		
+		newSingleThreadExecutor.awaitTermination(12, TimeUnit.SECONDS); // Wait n seconds to all tasks finish, or the param time
+		
+		newSingleThreadExecutor.isTerminated();
 	}
 
 	private void submit() {
