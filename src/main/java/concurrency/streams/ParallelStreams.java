@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ConcurrentMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ParallelStreams {
@@ -36,12 +39,14 @@ public class ParallelStreams {
 			System.out.println(e);
 			return e.toUpperCase();
 		}).forEach(System.out::println);
-		System.out.println("-----------------------------------------");
+		System.out.println("---------------FIND ANY---------------");
 		findAny();
-		System.out.println("-----------------------------------------");
+		System.out.println("---------------FIND FIRST----------------");
 		findFirst();
-		System.out.println("-----------------------------------------");
+		System.out.println("-----------------REDUCE----------------");
 		reduce();
+		System.out.println("-----------------COLLECT----------------");
+		collect();
 	}
 
 	private static void findAny() {
@@ -70,5 +75,25 @@ public class ParallelStreams {
 		// Best way
 		System.out.println(Arrays.asList("w", "o", "l", "f").parallelStream().reduce("X", (a, b) -> a + b, (a, b) -> a + b));
 	}
+	
+	private static void collect() {
+		/*
+		 * Parallel reduction require the following characteristics:
+		 * 
+		 * 1. Parallel Stream;
+		 * 2. Concurrent collections;
+		 * 3. Unordered collections;
+		 * 
+		 * It means that it's always collected into a Map.
+		 */
+		ConcurrentMap<Integer, String> map = Arrays.asList("w", "o", "l", "f").parallelStream()
+				.collect(Collectors.toConcurrentMap(String::length, Function.identity(), (v1, v2) -> v1 + "," + v2));
+		System.out.println(map);
+		
+		ConcurrentMap<Integer, List<String>> groupedBy = Arrays.asList("w", "o", "l", "f").parallelStream()
+				.collect(Collectors.groupingByConcurrent(String::length));
+		System.out.println(groupedBy);
+	}
+	
 	
 }

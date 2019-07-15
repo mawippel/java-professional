@@ -8,7 +8,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -24,6 +23,7 @@ public class CollectorsExamples {
 	private void averagingInt() {
 		Stream<Integer> of = Stream.of(1, 56, 88);
 		Double collect = of.collect(Collectors.averagingInt(e -> e));
+		// There are also averagingLong and averagingDouble, all of them return a Double
 	}
 	
 	private void toMap() {
