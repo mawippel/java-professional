@@ -43,7 +43,7 @@ public class WeightAnimalAction extends RecursiveAction {
 		
 		ForkJoinTask<?> task = new WeightAnimalAction(0, weights.length, weights);
 		ForkJoinPool pool = new ForkJoinPool();
-		pool.invoke(task);
+		Object invoke = pool.invoke(task);
 		
 		System.out.println("Weights: ");
 		Arrays.asList(weights).stream().forEach(d -> System.out.println(d.intValue() + ""));
