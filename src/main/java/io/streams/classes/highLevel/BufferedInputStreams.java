@@ -12,7 +12,7 @@ public class BufferedInputStreams {
 		byte[] buffer = new byte[1024];
 		
 		outputStream.read();
-		outputStream.read(buffer);
+		int read = outputStream.read(buffer); // the bytes are inside the array, and the return is how many bytes were read
 		outputStream.read(new byte[] {1}, 10, 50);
 	}
 	
