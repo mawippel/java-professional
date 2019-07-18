@@ -1,11 +1,16 @@
 package nio2;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 /**
  * Helper class like Paths, but here it's used to operate with files in Path.
@@ -16,7 +21,6 @@ import java.nio.file.StandardCopyOption;
 public class FilesIo {
 
 	public static void main(String[] args) {
-		move();
 	}
 	
 	private void exists() {
@@ -88,7 +92,26 @@ public class FilesIo {
 	}
 	
 	private void bufferedReaderAndWriter() {
-		
+		try {
+			BufferedReader newBufferedReader = Files.newBufferedReader(Paths.get("C:\\temp"));
+			BufferedReader bufferedReaderCharset = Files.newBufferedReader(Paths.get("C:\\temp"), Charset.forName("UTF-8"));
+			
+			BufferedWriter newBufferedWriter = Files.newBufferedWriter(Paths.get("C:\\temp"));
+			BufferedWriter newBufferedWriter2 = Files.newBufferedWriter(Paths.get("C:\\temp"), Charset.defaultCharset());
+			BufferedWriter newBufferedWriter3 = Files.newBufferedWriter(Paths.get("C:\\temp"), StandardOpenOption.APPEND);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void readAllLines() {
+		try {
+			// may throw OutOfMemoryError if it's too large
+			List<String> readAllLines = Files.readAllLines(Paths.get("C:\\\\temp"));
+			List<String> readAllLines2 = Files.readAllLines(Paths.get("C:\\\\temp"), Charset.defaultCharset());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
