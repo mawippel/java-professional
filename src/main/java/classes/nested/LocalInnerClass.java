@@ -21,6 +21,7 @@ public class LocalInnerClass {
 		}
 		
 		Inner inner = new Inner();
+		System.out.println(inner.xd); // can access a private var
 		inner.multiply();
 	}
 

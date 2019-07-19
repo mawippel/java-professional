@@ -39,6 +39,8 @@ public class Merge {
 		favorites.merge("ele1", "eee", nullMapper);
 		// In this case the element is added, as there wasn't any 'newEle' key
 		favorites.merge("newEle", "aaa", nullMapper);
+		
+		System.out.println(favorites);
 	}
 
 }

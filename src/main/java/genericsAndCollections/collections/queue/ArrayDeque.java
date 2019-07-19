@@ -13,6 +13,11 @@ public class ArrayDeque {
 	 * 
 	 * pop -> pops out the element from the stack/queue
 	 * peek -> gets the elements but not remove it from the stack/queue
+	 * peekFirst
+	 * peekLast
+	 * poll -> gets and remove the head of the queue
+	 * pollFirst
+	 * pollLast
 	 */
 	
 }

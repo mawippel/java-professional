@@ -11,7 +11,7 @@ import java.util.List;
 public class LowerBounded {
 
 	private void addSound(List<? super String> list) {
-		list.add("This is immutable!");
+		list.add("This is mutable!");
 		list.add(""); // THIS IS MUTABLE, BUT YOU CAN ADD ONLY STRINGS
 	}
 

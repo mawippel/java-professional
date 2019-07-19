@@ -29,6 +29,4 @@ public class Mappers {
 		mapToDouble.mapToLong(d -> (long)d); // DoubleToLongFunction
 	}
 	
-	
-	
 }

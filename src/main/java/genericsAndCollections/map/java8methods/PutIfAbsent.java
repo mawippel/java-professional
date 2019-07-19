@@ -14,11 +14,13 @@ public class PutIfAbsent {
 		// This updates the value
 		map.put("ele1", "abc");
 		
-		// This updates the value too
+		// It doesn't update the value
 		map.putIfAbsent("ele1", "kkk");
 		
-		// Adds the value as well, because it was a null value
+		// Updates the value, because it was a null value
 		map.putIfAbsent("ele3", "jjj");
+		
+		System.out.println(map);
 	}
 	
 }
