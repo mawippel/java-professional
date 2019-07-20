@@ -58,7 +58,7 @@ public class ParallelStreams {
 
 	private static void findFirst() {
 		/*
-		 * FindFirst will return the first element, but, it has no advantage in using a
+		 * FindFirst may return the first element, but, it has no advantage in using a
 		 * parallelStream, as it has to synchronize it to generate a right output
 		 */
 		List<String> asList = Arrays.asList("man", "this", "is", "parallel");
@@ -74,6 +74,7 @@ public class ParallelStreams {
 		
 		// Best way
 		System.out.println(Arrays.asList("w", "o", "l", "f").parallelStream().reduce("X", (a, b) -> a + b, (a, b) -> a + b));
+		System.out.println(Arrays.asList("w", "o", "l", "f").parallelStream().reduce(0, (a, b) -> a + b.length(), (a, b) -> Integer.sum(a, b)));
 	}
 	
 	private static void collect() {
