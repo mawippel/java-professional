@@ -1,5 +1,5 @@
 # java-professional
-Repository used to study for the Java SE 8 Programmer II | 1Z0-809 Certification
+Repository built while studying for the Java SE 8 Programmer II | 1Z0-809 Certification
 
 ### Exam
 [Java SE 8 Programmer II](https://education.oracle.com/pt_BR/java-se-8-programmer-ii/pexam_1Z0-809)
